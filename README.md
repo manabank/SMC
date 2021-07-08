@@ -1,2 +1,2 @@
 # SMC
- eletAvançado
+ Módulo Avançado Eletrônica

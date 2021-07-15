@@ -13,12 +13,14 @@
 
 #define _XTAL_FREQ 1000000
 
+//FunÃ§Ã£o da interrupÃ§Ã£o
+
 void __interrupt() interrupcao(){
     
     if (INTCONbits.INT0F == 1){
         INTCONbits.INT0F = 0;
         
-        //Caso a interrupção seja pressionada na sequência correta
+        //Caso a interrupÃ§Ã£o seja pressionada na sequÃªncia correta
         
         if (PORTD == 0b00011000){
             
@@ -35,25 +37,25 @@ void __interrupt() interrupcao(){
                 
                 contador += 100;
             }
-            PORTD = 0b00000011; //Após o acerto, reinicia o jogo
+            PORTD = 0b00000011; //ApÃ³s o acerto, reinicia o jogo
         }
         else{ 
             
-            //Caso a interrupção seja pressionada na sequência errada
+            //Caso a interrupÃ§Ã£o seja pressionada na sequÃªncia errada
             
             PORTD = 0b11111111;
             __delay_ms(500);
             PORTD = 0b00000000;
             __delay_ms(100);
             
-            PORTD = 0b00000011; //Após o erro, reinicia o jogo
+            PORTD = 0b00000011; //ApÃ³s o erro, reinicia o jogo
         }
     }
 }
 
 void main(void) {
     
-    //Configuração do INT0
+    //ConfiguraÃ§Ã£o do INT0
     
     TRISB |= 0b00000001;
     INTCONbits.INT0E = 1;
@@ -76,7 +78,7 @@ void main(void) {
         PORTD =0b00001100;
         __delay_ms(70);
         
-        PORTD =0b00011000; //Sequência correta
+        PORTD =0b00011000; //SequÃªncia correta
         __delay_ms(70);
         
         PORTD =0b00110000;

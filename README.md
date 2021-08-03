@@ -1,2 +1,2 @@
-# SMC
+# IMD - SMC
  Módulo Avançado Eletrônica
